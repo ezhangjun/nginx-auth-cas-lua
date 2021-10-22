@@ -44,7 +44,7 @@ location ~* \.(gif|jpg|png|js|css|ico|ttf|woff|woff2)$ {
 - 当登录成功后，跳转到/cas-logout 即可退出登录
 ```
 location /cas-logout {
-    access_by_lua_block { require('cas').logout() }
+    access_by_lua_block { require('cas').logout("http://your-sso-server-domain.com/login?service=http://your-website-domain.com/") }
     root   html;
     index  index.html index.htm;
 }
